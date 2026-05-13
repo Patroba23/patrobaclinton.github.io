@@ -8,10 +8,7 @@
   <style>
     :root {
       --green: #00e676;
-      --green-dim: #00c853;
-      --green-dark: #004d20;
       --amber: #ffab00;
-      --amber-dim: #ff8f00;
       --navy: #050d1a;
       --slate: #0d1f35;
       --card-bg: rgba(10, 25, 47, 0.85);
@@ -25,209 +22,136 @@
     ::-webkit-scrollbar-track { background: var(--navy); }
     ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
 
-    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
       padding: 16px 48px;
-      background: rgba(5, 13, 26, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0, 230, 118, 0.15);
+      background: rgba(5,13,26,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,230,118,0.15);
     }
     .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--green); letter-spacing: 3px; }
-    .nav-links a { color: var(--muted); text-decoration: none; margin-left: 32px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; }
+    .nav-links a { color: var(--muted); text-decoration: none; margin-left: 28px; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; }
     .nav-links a:hover { color: var(--green); }
+    .nav-links a.blog-link { color: var(--amber); border: 1px solid rgba(255,171,0,0.3); padding: 5px 12px; border-radius: 2px; }
+    .nav-links a.blog-link:hover { background: rgba(255,171,0,0.08); color: var(--amber); }
 
-    /* HERO */
     #hero { min-height: 100vh; position: relative; display: flex; align-items: center; overflow: hidden; }
-    .hero-gif {
-      position: absolute; inset: 0;
-      background-image: url('https://media.giphy.com/media/l46Cy1rHbQ92uuLXa/giphy.gif');
-      background-size: cover; background-position: center;
-      opacity: 0.15; filter: hue-rotate(100deg) saturate(1.5);
-    }
-    .hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(5,13,26,0.96) 40%, rgba(0,77,32,0.5) 100%);
-    }
+    .hero-gif { position: absolute; inset: 0; background-image: url('https://media.giphy.com/media/l46Cy1rHbQ92uuLXa/giphy.gif'); background-size: cover; background-position: center; opacity: 0.15; filter: hue-rotate(100deg) saturate(1.5); }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(5,13,26,0.96) 40%, rgba(0,77,32,0.5) 100%); }
     .hero-content { position: relative; z-index: 2; padding: 0 10vw; max-width: 1100px; }
-    .hero-tag {
-      display: inline-block; font-family: 'Space Mono', monospace; font-size: 0.72rem;
-      letter-spacing: 3px; color: var(--green); border: 1px solid rgba(0,230,118,0.4);
-      padding: 6px 14px; border-radius: 2px; margin-bottom: 28px;
-      animation: fadeDown 0.8s ease both;
-    }
-    .hero-name {
-      font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 10vw, 9rem);
-      line-height: 0.9; letter-spacing: 4px; color: #fff;
-      animation: fadeDown 0.9s ease 0.1s both;
-    }
+    .hero-tag { display: inline-block; font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 3px; color: var(--green); border: 1px solid rgba(0,230,118,0.4); padding: 6px 14px; border-radius: 2px; margin-bottom: 28px; animation: fadeDown 0.8s ease both; }
+    .hero-name { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem,10vw,9rem); line-height: 0.9; letter-spacing: 4px; color: #fff; animation: fadeDown 0.9s ease 0.1s both; }
     .hero-name span { color: var(--green); }
-    .hero-subtitle {
-      font-size: 1.1rem; font-weight: 300; color: var(--muted);
-      max-width: 560px; line-height: 1.8; margin-top: 28px;
-      animation: fadeDown 1s ease 0.2s both;
-    }
+    .hero-subtitle { font-size: 1.1rem; font-weight: 300; color: var(--muted); max-width: 560px; line-height: 1.8; margin-top: 28px; animation: fadeDown 1s ease 0.2s both; }
     .hero-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; animation: fadeDown 1s ease 0.3s both; }
-    .pill {
-      font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 7px 16px;
-      border-radius: 100px; border: 1px solid rgba(0,230,118,0.3);
-      color: var(--green); background: rgba(0,230,118,0.05); letter-spacing: 1px;
-    }
-    .hero-scroll {
-      position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
-      animation: bounce 2s infinite; z-index: 2;
-    }
+    .pill { font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 7px 16px; border-radius: 100px; border: 1px solid rgba(0,230,118,0.3); color: var(--green); background: rgba(0,230,118,0.05); letter-spacing: 1px; }
+    .hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; animation: bounce 2s infinite; z-index: 2; }
     .hero-scroll span { font-size: 0.65rem; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
     .hero-scroll .arrow { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--green), transparent); }
 
-    /* SECTION BASE */
     .section-wrapper { position: relative; overflow: hidden; }
-    .section-gif {
-      position: absolute; inset: 0; background-size: cover;
-      background-position: center; background-attachment: fixed;
-    }
-    .gis-gif {
-      background-image: url('https://media.giphy.com/media/3oEjI5P7RD2we6odZC/giphy.gif');
-      opacity: 0.07; filter: hue-rotate(120deg) saturate(2);
-    }
-    .geo-gif {
-      background-image: url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif');
-      opacity: 0.10; filter: sepia(1) saturate(3) hue-rotate(10deg);
-    }
-    .section-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom, var(--navy) 0%, rgba(5,13,26,0.65) 50%, var(--navy) 100%);
-    }
+    .section-gif { position: absolute; inset: 0; background-size: cover; background-position: center; background-attachment: fixed; }
+    .gis-gif { background-image: url('https://media.giphy.com/media/3oEjI5P7RD2we6odZC/giphy.gif'); opacity: 0.07; filter: hue-rotate(120deg) saturate(2); }
+    .geo-gif { background-image: url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif'); opacity: 0.10; filter: sepia(1) saturate(3) hue-rotate(10deg); }
+    .section-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, var(--navy) 0%, rgba(5,13,26,0.65) 50%, var(--navy) 100%); }
     .section-inner { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; padding: 100px 40px; }
 
-    /* HEADERS */
     .section-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 12px; }
     .section-eyebrow.green { color: var(--green); }
     .section-eyebrow.amber { color: var(--amber); }
-    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: 3px; line-height: 1; margin-bottom: 20px; color: #fff; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem,6vw,5rem); letter-spacing: 3px; line-height: 1; margin-bottom: 20px; color: #fff; }
     .section-title span.g { color: var(--green); }
     .section-title span.a { color: var(--amber); }
     .section-divider { width: 60px; height: 3px; margin-bottom: 40px; border-radius: 2px; }
     .section-divider.green { background: var(--green); }
     .section-divider.amber { background: var(--amber); }
 
-    /* ABOUT */
     .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: start; }
     .stat-block { margin-bottom: 32px; }
     .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: var(--green); line-height: 1; }
     .stat-label { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
     .tools-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
-    .tool-tag {
-      font-family: 'Space Mono', monospace; font-size: 0.65rem; padding: 5px 12px; border-radius: 2px;
-      background: rgba(0,230,118,0.08); border: 1px solid rgba(0,230,118,0.2); color: var(--green); letter-spacing: 1px;
-    }
+    .tool-tag { font-family: 'Space Mono', monospace; font-size: 0.65rem; padding: 5px 12px; border-radius: 2px; background: rgba(0,230,118,0.08); border: 1px solid rgba(0,230,118,0.2); color: var(--green); letter-spacing: 1px; }
     .about-right p { font-size: 1rem; line-height: 1.9; color: #b0bec5; margin-bottom: 18px; }
     .about-right p strong { color: var(--green); }
 
-    /* PROJECTS GRID */
     .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
-    .project-card {
-      background: var(--card-bg); border: 1px solid rgba(0,230,118,0.15);
-      border-radius: 4px; overflow: hidden;
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    }
+    .project-card { background: var(--card-bg); border: 1px solid rgba(0,230,118,0.15); border-radius: 4px; overflow: hidden; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; }
     .project-card:hover { transform: translateY(-6px); border-color: var(--green); box-shadow: 0 20px 60px rgba(0,230,118,0.1); }
     .project-card.geo-card { border-color: rgba(255,171,0,0.15); }
     .project-card.geo-card:hover { border-color: var(--amber); box-shadow: 0 20px 60px rgba(255,171,0,0.1); }
-
-    .project-img { width: 100%; height: 180px; object-fit: cover; display: block; filter: grayscale(20%) brightness(0.8); transition: filter 0.4s ease; }
-    .project-card:hover .project-img { filter: grayscale(0%) brightness(1); }
-    .project-img-placeholder {
-      width: 100%; height: 180px; display: flex; align-items: center; justify-content: center;
-      font-size: 3.5rem;
-    }
+    .project-img-placeholder { width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; }
     .map-embed { width: 100%; height: 180px; border: none; display: block; filter: brightness(0.8) saturate(1.3) hue-rotate(100deg); transition: filter 0.3s; }
     .project-card:hover .map-embed { filter: brightness(1) saturate(1.6) hue-rotate(100deg); }
-
     .project-body { padding: 24px; }
     .project-number { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--green); letter-spacing: 3px; margin-bottom: 10px; }
     .project-number.geo { color: var(--amber); }
     .project-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 2px; color: #fff; margin-bottom: 14px; line-height: 1.2; }
     .project-desc { font-size: 0.88rem; line-height: 1.8; color: #90a4ae; }
     .project-tools { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
-    .project-tool {
-      font-family: 'Space Mono', monospace; font-size: 0.6rem; padding: 3px 10px; border-radius: 2px;
-      background: rgba(0,230,118,0.06); border: 1px solid rgba(0,230,118,0.2); color: #69f0ae;
-    }
+    .project-tool { font-family: 'Space Mono', monospace; font-size: 0.6rem; padding: 3px 10px; border-radius: 2px; background: rgba(0,230,118,0.06); border: 1px solid rgba(0,230,118,0.2); color: #69f0ae; }
     .project-tool.geo { background: rgba(255,171,0,0.06); border-color: rgba(255,171,0,0.2); color: #ffd740; }
 
-    /* GEO BANNER */
-    .geo-intro-banner {
-      background: linear-gradient(135deg, rgba(255,171,0,0.08), rgba(255,143,0,0.03));
-      border: 1px solid rgba(255,171,0,0.2); border-radius: 4px; padding: 32px 36px; margin-bottom: 40px;
-      position: relative; overflow: hidden;
-    }
-    .geo-intro-banner::before {
-      content: 'GEO'; position: absolute; right: -10px; top: -20px;
-      font-family: 'Bebas Neue', sans-serif; font-size: 8rem;
-      color: rgba(255,171,0,0.04); letter-spacing: 10px; pointer-events: none;
-    }
+    .geo-intro-banner { background: linear-gradient(135deg, rgba(255,171,0,0.08), rgba(255,143,0,0.03)); border: 1px solid rgba(255,171,0,0.2); border-radius: 4px; padding: 32px 36px; margin-bottom: 40px; position: relative; overflow: hidden; }
+    .geo-intro-banner::before { content: 'GEO'; position: absolute; right: -10px; top: -20px; font-family: 'Bebas Neue', sans-serif; font-size: 8rem; color: rgba(255,171,0,0.04); letter-spacing: 10px; pointer-events: none; }
     .geo-intro-banner h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 3px; color: var(--amber); margin-bottom: 12px; }
     .geo-intro-banner p { font-size: 0.9rem; line-height: 1.9; color: #b0bec5; }
     .geo-intro-banner strong { color: var(--amber); }
 
-    /* CONTACT */
+    /* BLOG PREVIEW SECTION */
+    #blog-preview { padding: 100px 0; background: var(--navy); }
+    .blog-preview-inner { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+    .blog-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 20px; }
+    .blog-card { background: var(--card-bg); border: 1px solid rgba(255,171,0,0.12); border-radius: 4px; padding: 28px; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; text-decoration: none; display: block; }
+    .blog-card:hover { transform: translateY(-6px); border-color: var(--amber); box-shadow: 0 20px 60px rgba(255,171,0,0.08); }
+    .blog-card-tag { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
+    .blog-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 2px; color: #fff; line-height: 1.2; margin-bottom: 12px; }
+    .blog-card-excerpt { font-size: 0.83rem; line-height: 1.8; color: var(--muted); }
+    .blog-card-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .blog-card-date { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--muted); }
+    .blog-card-arrow { color: var(--amber); font-size: 1rem; }
+    .blog-cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 40px; font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); text-decoration: none; border: 1px solid rgba(255,171,0,0.3); padding: 12px 24px; border-radius: 2px; transition: all 0.3s; }
+    .blog-cta:hover { background: rgba(255,171,0,0.08); transform: translateX(4px); }
+
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
     .contact-links { display: flex; flex-direction: column; gap: 16px; }
-    .contact-link {
-      display: flex; align-items: center; gap: 16px;
-      background: var(--card-bg); border: 1px solid rgba(0,230,118,0.15);
-      border-radius: 4px; padding: 20px 24px; text-decoration: none;
-      transition: all 0.3s ease;
-    }
+    .contact-link { display: flex; align-items: center; gap: 16px; background: var(--card-bg); border: 1px solid rgba(0,230,118,0.15); border-radius: 4px; padding: 20px 24px; text-decoration: none; transition: all 0.3s; }
     .contact-link:hover { border-color: var(--green); transform: translateX(6px); }
-    .contact-icon {
-      font-size: 1.4rem; width: 44px; height: 44px; display: flex; align-items: center;
-      justify-content: center; background: rgba(0,230,118,0.08); border-radius: 4px; flex-shrink: 0;
-    }
+    .contact-icon { font-size: 1.4rem; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(0,230,118,0.08); border-radius: 4px; flex-shrink: 0; }
     .contact-link-text .label { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 4px; }
     .contact-link-text .value { font-size: 0.85rem; color: var(--text); word-break: break-all; }
 
-    /* FOOTER */
-    footer {
-      background: var(--navy); border-top: 1px solid rgba(0,230,118,0.1);
-      padding: 32px 48px; display: flex; justify-content: space-between; align-items: center;
-    }
+    footer { background: var(--navy); border-top: 1px solid rgba(0,230,118,0.1); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; }
     footer .f-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 3px; color: var(--green); }
     footer p { font-size: 0.75rem; color: var(--muted); letter-spacing: 1px; }
 
     @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(10px); }
-    }
+    @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(10px); } }
 
     @media (max-width: 768px) {
       nav { padding: 14px 20px; }
-      .nav-links a { margin-left: 14px; font-size: 0.68rem; }
+      .nav-links a { margin-left: 10px; font-size: 0.65rem; }
       .hero-content { padding: 0 6vw; }
-      .about-grid, .projects-grid, .contact-grid { grid-template-columns: 1fr; }
-      .section-inner { padding: 80px 24px; }
+      .about-grid, .projects-grid, .contact-grid, .blog-grid { grid-template-columns: 1fr; }
+      .section-inner, .blog-preview-inner { padding: 80px 24px; }
       footer { flex-direction: column; gap: 12px; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">CP</div>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#gis">GIS</a>
     <a href="#geo">GEO</a>
+    <a href="#blog-preview">Blog</a>
+    <a href="blog.html" class="blog-link">All Posts →</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-gif"></div>
   <div class="hero-overlay"></div>
@@ -244,41 +168,24 @@
       <span class="pill">Urban Planning</span>
     </div>
   </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="arrow"></div>
-  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="arrow"></div></div>
 </section>
 
-<!-- ABOUT -->
 <section id="about" style="padding: 100px 0; background: var(--slate);">
   <div style="max-width: 1000px; margin: 0 auto; padding: 0 40px;">
     <div class="section-eyebrow green">// Who I Am</div>
     <h2 class="section-title">About <span class="g">Me</span></h2>
     <div class="section-divider green"></div>
     <div class="about-grid">
-      <div class="about-left">
-        <div class="stat-block">
-          <div class="stat-num">4+</div>
-          <div class="stat-label">Years of GIS &amp; Planning Experience</div>
-        </div>
-        <div class="stat-block">
-          <div class="stat-num">3</div>
-          <div class="stat-label">Counties Mapped Across Kenya</div>
-        </div>
-        <div class="stat-block">
-          <div class="stat-num">2nd</div>
-          <div class="stat-label">Class Honours — Technical Univ. of Kenya</div>
-        </div>
-        <div class="stat-label" style="margin-top: 28px; margin-bottom: 12px;">Core Toolset</div>
+      <div>
+        <div class="stat-block"><div class="stat-num">4+</div><div class="stat-label">Years of GIS &amp; Planning Experience</div></div>
+        <div class="stat-block"><div class="stat-num">3</div><div class="stat-label">Counties Mapped Across Kenya</div></div>
+        <div class="stat-block"><div class="stat-num">2nd</div><div class="stat-label">Class Honours — Technical Univ. of Kenya</div></div>
+        <div class="stat-label" style="margin-top:28px;margin-bottom:12px;">Core Toolset</div>
         <div class="tools-grid">
-          <span class="tool-tag">ArcGIS</span>
-          <span class="tool-tag">QGIS</span>
-          <span class="tool-tag">Google Earth Engine</span>
-          <span class="tool-tag">Excel Dashboards</span>
-          <span class="tool-tag">Adobe InDesign</span>
-          <span class="tool-tag">Python (learning)</span>
-          <span class="tool-tag">GEO Strategy</span>
+          <span class="tool-tag">ArcGIS</span><span class="tool-tag">QGIS</span><span class="tool-tag">Google Earth Engine</span>
+          <span class="tool-tag">Excel Dashboards</span><span class="tool-tag">Adobe InDesign</span>
+          <span class="tool-tag">Python (learning)</span><span class="tool-tag">GEO Strategy</span>
         </div>
       </div>
       <div class="about-right">
@@ -291,7 +198,6 @@
   </div>
 </section>
 
-<!-- GIS SECTION -->
 <div class="section-wrapper" id="gis">
   <div class="section-gif gis-gif"></div>
   <div class="section-overlay"></div>
@@ -299,166 +205,150 @@
     <div class="section-eyebrow green">// Spatial Work</div>
     <h2 class="section-title">GIS <span class="g">Portfolio</span></h2>
     <div class="section-divider green"></div>
-
     <div class="projects-grid">
-
       <div class="project-card">
-        <iframe class="map-embed" title="Nairobi informal settlements"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=36.75%2C-1.35%2C36.95%2C-1.22&layer=mapnik"
-          loading="lazy"></iframe>
+        <iframe class="map-embed" title="Nairobi informal settlements" src="https://www.openstreetmap.org/export/embed.html?bbox=36.75%2C-1.35%2C36.95%2C-1.22&layer=mapnik" loading="lazy"></iframe>
         <div class="project-body">
           <div class="project-number">PROJECT 01</div>
           <h3 class="project-title">Informal Settlement Mapping — Nairobi City</h3>
-          <p class="project-desc">Used GIS to map informal settlements across Nairobi — Mathare, Kibera, Kahawa Soweto, and Mukuru kwa Njenga. Involved spatial analysis, field data collection, survey design, and data cleaning. Findings were visualised through maps and Excel dashboards for researchers and stakeholders.</p>
-          <div class="project-tools">
-            <span class="project-tool">ArcGIS</span>
-            <span class="project-tool">QGIS</span>
-            <span class="project-tool">Excel</span>
-            <span class="project-tool">Field Surveys</span>
-          </div>
+          <p class="project-desc">Used GIS to map informal settlements across Nairobi — Mathare, Kibera, Kahawa Soweto, and Mukuru kwa Njenga. Spatial analysis, field data collection, survey design, and Excel dashboards for researchers and stakeholders.</p>
+          <div class="project-tools"><span class="project-tool">ArcGIS</span><span class="project-tool">QGIS</span><span class="project-tool">Excel</span><span class="project-tool">Field Surveys</span></div>
         </div>
       </div>
-
       <div class="project-card">
-        <iframe class="map-embed" title="Kajiado County Ewaso Kedong"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=36.35%2C-1.95%2C37.05%2C-1.55&layer=mapnik"
-          loading="lazy"></iframe>
+        <iframe class="map-embed" title="Kajiado County" src="https://www.openstreetmap.org/export/embed.html?bbox=36.35%2C-1.95%2C37.05%2C-1.55&layer=mapnik" loading="lazy"></iframe>
         <div class="project-body">
           <div class="project-number">PROJECT 02</div>
           <h3 class="project-title">Mixed-Use Masterplan — SDA University, Kajiado</h3>
-          <p class="project-desc">Contributed to a comprehensive mixed-use master plan for a Seventh Day Adventist University Community in Ewaso Kedong, Kajiado County. Included site analysis, environmental and infrastructure evaluation, and ArcGIS visualisations for university staff and local authorities.</p>
-          <div class="project-tools">
-            <span class="project-tool">ArcGIS</span>
-            <span class="project-tool">Site Analysis</span>
-            <span class="project-tool">Stakeholder Engagement</span>
-          </div>
+          <p class="project-desc">Contributed to a comprehensive mixed-use master plan for an SDA University Community in Ewaso Kedong, Kajiado County. Site analysis, environmental evaluation, and ArcGIS visualisations for stakeholders.</p>
+          <div class="project-tools"><span class="project-tool">ArcGIS</span><span class="project-tool">Site Analysis</span><span class="project-tool">Stakeholder Engagement</span></div>
         </div>
       </div>
-
       <div class="project-card">
-        <div class="project-img-placeholder" style="background: linear-gradient(135deg, rgba(0,100,50,0.2), rgba(0,200,83,0.06));">🗺️</div>
+        <div class="project-img-placeholder" style="background:linear-gradient(135deg,rgba(0,100,50,0.2),rgba(0,200,83,0.06));">🗺️</div>
         <div class="project-body">
           <div class="project-number">PROJECT 03</div>
           <h3 class="project-title">GIS-Based Field Operations — BURN Manufacturing</h3>
-          <p class="project-desc">Used GIS mapping tools to analyse customer locations across territories, plan efficient field visit routes, and manage service coverage areas. This spatial approach improved operational response times and helped prioritise cases using location-based data.</p>
-          <div class="project-tools">
-            <span class="project-tool">GIS Mapping</span>
-            <span class="project-tool">Spatial Analysis</span>
-            <span class="project-tool">Territory Management</span>
-          </div>
+          <p class="project-desc">Used GIS mapping tools to analyse customer locations, plan efficient field visit routes, and manage service coverage areas — improving operational response times using location-based data.</p>
+          <div class="project-tools"><span class="project-tool">GIS Mapping</span><span class="project-tool">Spatial Analysis</span><span class="project-tool">Territory Management</span></div>
         </div>
       </div>
-
       <div class="project-card">
-        <div class="project-img-placeholder" style="background: linear-gradient(135deg, rgba(0,50,100,0.2), rgba(0,100,200,0.06));">🚦</div>
+        <div class="project-img-placeholder" style="background:linear-gradient(135deg,rgba(0,50,100,0.2),rgba(0,100,200,0.06));">🚦</div>
         <div class="project-body">
           <div class="project-number">PROJECT 04</div>
           <h3 class="project-title">Transport Data &amp; Verification — Timcon Associates</h3>
-          <p class="project-desc">Participated in data collection, entry, and verification tasks supporting transport modelling projects at a traffic engineering firm. Focused on data accuracy and integrity for transportation system optimisation and infrastructure planning studies.</p>
-          <div class="project-tools">
-            <span class="project-tool">Data Collection</span>
-            <span class="project-tool">Transport Modelling</span>
-            <span class="project-tool">Microsoft Excel</span>
-          </div>
+          <p class="project-desc">Data collection, entry, and verification supporting transport modelling projects at a traffic engineering firm. Focused on data accuracy for transportation system optimisation and infrastructure planning.</p>
+          <div class="project-tools"><span class="project-tool">Data Collection</span><span class="project-tool">Transport Modelling</span><span class="project-tool">Microsoft Excel</span></div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- GEO SECTION -->
 <div class="section-wrapper" id="geo">
   <div class="section-gif geo-gif"></div>
-  <div class="section-overlay" style="background: linear-gradient(to bottom, var(--navy) 0%, rgba(20,10,0,0.65) 50%, var(--navy) 100%);"></div>
+  <div class="section-overlay" style="background:linear-gradient(to bottom,var(--navy) 0%,rgba(20,10,0,0.65) 50%,var(--navy) 100%);"></div>
   <div class="section-inner">
     <div class="section-eyebrow amber">// AI-Powered Visibility</div>
     <h2 class="section-title">Generative Engine <span class="a">Optimisation</span></h2>
     <div class="section-divider amber"></div>
-
     <div class="geo-intro-banner">
       <h3>What is GEO?</h3>
-      <p>Generative Engine Optimisation (GEO) is an emerging field focused on making content and expertise visible and credible within AI-powered search engines — Google AI Overviews, ChatGPT Search, and Microsoft Copilot. Unlike traditional SEO, GEO focuses on how your knowledge, work, and authority are <strong>surfaced and cited by AI systems</strong> when people ask questions. As a GIS professional, I recognised that geospatial knowledge — particularly for African urban contexts — is deeply underrepresented in AI-generated responses. I am now learning how to close that gap.</p>
+      <p>Generative Engine Optimisation (GEO) is an emerging field focused on making content and expertise visible within AI-powered search engines — Google AI Overviews, ChatGPT Search, and Microsoft Copilot. Unlike traditional SEO, GEO focuses on how your knowledge and authority are <strong>surfaced and cited by AI systems</strong> when people ask questions. As a GIS professional, I recognised that geospatial knowledge — particularly for African urban contexts — is deeply underrepresented in AI-generated responses. I am now learning how to close that gap.</p>
     </div>
-
     <div class="projects-grid">
-
       <div class="project-card geo-card">
-        <div class="project-img-placeholder" style="background: linear-gradient(135deg, rgba(255,171,0,0.1), rgba(255,100,0,0.05));">🤖</div>
+        <div class="project-img-placeholder" style="background:linear-gradient(135deg,rgba(255,171,0,0.1),rgba(255,100,0,0.05));">🤖</div>
         <div class="project-body">
           <div class="project-number geo">LEARNING · 01</div>
           <h3 class="project-title">Why I'm Learning GEO</h3>
-          <p class="project-desc">As a GIS and Urban Planning professional, geospatial knowledge — particularly for African cities — is underrepresented in AI-generated responses. I am building a credible, AI-readable digital presence around my expertise to ensure that African urban planning knowledge surfaces in AI answers and reaches the audiences that need it most.</p>
-          <div class="project-tools">
-            <span class="project-tool geo">GEO Fundamentals</span>
-            <span class="project-tool geo">AI Search Behaviour</span>
-            <span class="project-tool geo">Content Authority</span>
-          </div>
+          <p class="project-desc">Geospatial knowledge — particularly for African cities — is underrepresented in AI-generated responses. I am building a credible, AI-readable digital presence around my expertise to ensure African urban planning knowledge surfaces in AI answers.</p>
+          <div class="project-tools"><span class="project-tool geo">GEO Fundamentals</span><span class="project-tool geo">AI Search Behaviour</span><span class="project-tool geo">Content Authority</span></div>
         </div>
       </div>
-
       <div class="project-card geo-card">
-        <div class="project-img-placeholder" style="background: linear-gradient(135deg, rgba(255,171,0,0.08), rgba(200,80,0,0.05));">🌍</div>
+        <div class="project-img-placeholder" style="background:linear-gradient(135deg,rgba(255,171,0,0.08),rgba(200,80,0,0.05));">🌍</div>
         <div class="project-body">
           <div class="project-number geo">DIRECTION · 02</div>
           <h3 class="project-title">GEO + GIS: My Planned Direction</h3>
-          <p class="project-desc">My goal is to combine GIS and Urban Planning expertise with GEO strategies — first to make my own portfolio more discoverable and citable by AI search engines, and second to help planning organisations, research institutions, and local governments in Kenya and across Africa build stronger digital authority so their work gets recognised in AI answers about African cities.</p>
-          <div class="project-tools">
-            <span class="project-tool geo">Digital Authority</span>
-            <span class="project-tool geo">African Urban AI</span>
-            <span class="project-tool geo">Started May 2026</span>
-          </div>
+          <p class="project-desc">Combining GIS and Urban Planning expertise with GEO strategies — making my portfolio more discoverable by AI search engines, and helping African planning organisations build digital authority so their work gets recognised in AI answers.</p>
+          <div class="project-tools"><span class="project-tool geo">Digital Authority</span><span class="project-tool geo">African Urban AI</span><span class="project-tool geo">Started May 2026</span></div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- CONTACT -->
-<section id="contact" style="padding: 100px 0; background: var(--slate);">
-  <div style="max-width: 1000px; margin: 0 auto; padding: 0 40px;">
+<!-- BLOG PREVIEW SECTION -->
+<section id="blog-preview">
+  <div class="blog-preview-inner">
+    <div class="section-eyebrow amber">// Thoughts & Insights</div>
+    <h2 class="section-title">From The <span class="a">Blog</span></h2>
+    <div class="section-divider amber"></div>
+
+    <div class="blog-grid">
+      <a href="post-template.html" class="blog-card">
+        <div class="blog-card-tag">GEO · May 2026</div>
+        <h3 class="blog-card-title">What is GEO and Why African Planners Need to Know About It</h3>
+        <p class="blog-card-excerpt">Generative Engine Optimisation is changing how expertise gets discovered. Here is why GIS and Urban Planning professionals in Africa cannot afford to ignore it.</p>
+        <div class="blog-card-meta">
+          <span class="blog-card-date">May 2026</span>
+          <span class="blog-card-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="post-template.html" class="blog-card">
+        <div class="blog-card-tag">GIS · Coming Soon</div>
+        <h3 class="blog-card-title">How I Mapped Informal Settlements in Nairobi Using QGIS</h3>
+        <p class="blog-card-excerpt">A step-by-step look at the tools, methods, and challenges involved in mapping Mathare, Kibera, and Mukuru kwa Njenga using open-source GIS tools.</p>
+        <div class="blog-card-meta">
+          <span class="blog-card-date">Coming Soon</span>
+          <span class="blog-card-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="post-template.html" class="blog-card">
+        <div class="blog-card-tag">GEO · Coming Soon</div>
+        <h3 class="blog-card-title">AnswerThePublic for GEO: A Beginner's Keyword Research Guide</h3>
+        <p class="blog-card-excerpt">How I used AnswerThePublic to find content gaps in AI search results for African urban planning — and what I plan to do about it.</p>
+        <div class="blog-card-meta">
+          <span class="blog-card-date">Coming Soon</span>
+          <span class="blog-card-arrow">→</span>
+        </div>
+      </a>
+    </div>
+
+    <a href="blog.html" class="blog-cta">View All Posts →</a>
+  </div>
+</section>
+
+<section id="contact" style="padding:100px 0;background:var(--slate);">
+  <div style="max-width:1000px;margin:0 auto;padding:0 40px;">
     <div class="contact-grid">
       <div>
         <div class="section-eyebrow green">// Get In Touch</div>
-        <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: 3px; line-height: 1; color: #fff;">Let's <span style="color: var(--green);">Work</span><br>Together</h2>
-        <p style="margin-top: 20px; font-size: 0.95rem; color: var(--muted); line-height: 1.8;">Whether you need GIS analysis, urban planning support, or want to explore how GEO can amplify your organisation's spatial knowledge — I'd love to connect.</p>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);letter-spacing:3px;line-height:1;color:#fff;">Let's <span style="color:var(--green);">Work</span><br>Together</h2>
+        <p style="margin-top:20px;font-size:0.95rem;color:var(--muted);line-height:1.8;">Whether you need GIS analysis, urban planning support, or want to explore how GEO can amplify your organisation's spatial knowledge — I'd love to connect.</p>
       </div>
       <div class="contact-links">
         <a href="mailto:clintonpatrobas@gmail.com" class="contact-link">
           <div class="contact-icon">📧</div>
-          <div class="contact-link-text">
-            <div class="label">Email</div>
-            <div class="value">clintonpatrobas@gmail.com</div>
-            <a href="tel:+254XXXXXXXXX" class="contact-link">
-  <div class="contact-icon">📞</div>
-  <div class="contact-link-text">
-    <div class="label">Phone</div>
-    <div class="value">+254 768481386</div>
-  </div>
-</a>
-          </div>
+          <div class="contact-link-text"><div class="label">Email</div><div class="value">clintonpatrobas@gmail.com</div></div>
         </a>
         <a href="https://www.linkedin.com/in/patroba-clinton-6321ab1b3/" target="_blank" class="contact-link">
           <div class="contact-icon">💼</div>
-          <div class="contact-link-text">
-            <div class="label">LinkedIn</div>
-            <div class="value">patroba-clinton-6321ab1b3</div>
-          </div>
+          <div class="contact-link-text"><div class="label">LinkedIn</div><div class="value">patroba-clinton-6321ab1b3</div></div>
         </a>
         <a href="https://github.com/Patroba23" target="_blank" class="contact-link">
           <div class="contact-icon">🐙</div>
-          <div class="contact-link-text">
-            <div class="label">GitHub</div>
-            <div class="value">github.com/Patroba23</div>
-          </div>
+          <div class="contact-link-text"><div class="label">GitHub</div><div class="value">github.com/Patroba23</div></div>
         </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="f-logo">Clinton Patroba</div>
   <p>© 2026 · GIS &amp; GEO Portfolio · Nairobi, Kenya</p>

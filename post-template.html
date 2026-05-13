@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- EDIT: Change this to your post title -->
+  <title>What is GEO and Why African Planners Need to Know About It | Clinton Patroba</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #00e676;
+      --amber: #ffab00;
+      --navy: #050d1a;
+      --slate: #0d1f35;
+      --card-bg: rgba(10,25,47,0.85);
+      --text: #e8f5e9;
+      --muted: #90a4ae;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text); overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 2px; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 48px;
+      background: rgba(5,13,26,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,171,0,0.15);
+    }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--green); letter-spacing: 3px; text-decoration: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; margin-left: 28px; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--amber); }
+
+    /* POST HERO */
+    .post-hero { min-height: 50vh; position: relative; display: flex; align-items: flex-end; padding-bottom: 60px; overflow: hidden; padding-top: 80px; }
+    .post-hero-gif {
+      position: absolute; inset: 0;
+      /* EDIT: Change this GIF — use the GIS gif for GIS posts, GEO gif for GEO posts */
+      background-image: url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif');
+      background-size: cover; background-position: center;
+      opacity: 0.1; filter: sepia(1) saturate(3) hue-rotate(10deg);
+    }
+    .post-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(5,13,26,0.7) 0%, rgba(5,13,26,0.97) 100%); }
+    .post-hero-content { position: relative; z-index: 2; max-width: 760px; margin: 0 auto; padding: 0 40px; width: 100%; }
+
+    .breadcrumb { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+    .breadcrumb a { font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s; }
+    .breadcrumb a:hover { color: var(--amber); }
+    .breadcrumb span { color: rgba(255,255,255,0.2); font-size: 0.7rem; }
+
+    /* EDIT: Change .post-category color to var(--green) for GIS posts */
+    .post-category { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 16px; }
+
+    .post-hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      letter-spacing: 3px; line-height: 1.05; color: #fff;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .post-meta-bar { display: flex; align-items: center; gap: 24px; margin-top: 28px; flex-wrap: wrap; }
+    .meta-item { display: flex; align-items: center; gap: 8px; }
+    .meta-label { font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .meta-value { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--text); }
+    .meta-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.1); }
+
+    /* ARTICLE BODY */
+    .article-wrap { max-width: 760px; margin: 0 auto; padding: 60px 40px 100px; }
+
+    /* LEAD PARAGRAPH */
+    .article-lead { font-size: 1.2rem; line-height: 1.9; color: #cfd8dc; font-weight: 300; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+    /* BODY PARAGRAPHS */
+    .article-wrap p { font-size: 1rem; line-height: 1.95; color: #90a4ae; margin-bottom: 24px; }
+    .article-wrap p strong { color: var(--text); font-weight: 500; }
+
+    /* HEADINGS */
+    .article-wrap h2 {
+      font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 3px;
+      color: #fff; margin: 48px 0 20px; padding-top: 8px;
+      border-left: 3px solid var(--amber); padding-left: 16px;
+    }
+    /* EDIT: Change border color to var(--green) for GIS posts */
+    .article-wrap h3 { font-family: 'DM Sans', sans-serif; font-size: 1.15rem; font-weight: 500; color: var(--text); margin: 32px 0 14px; }
+
+    /* PULL QUOTE */
+    .pull-quote {
+      border-left: 3px solid var(--amber); padding: 20px 28px; margin: 40px 0;
+      background: rgba(255,171,0,0.04); border-radius: 0 4px 4px 0;
+    }
+    /* EDIT: Change border/background to green versions for GIS posts */
+    .pull-quote p { font-size: 1.15rem; line-height: 1.8; color: var(--text); font-style: italic; margin: 0; }
+
+    /* KEY POINTS BOX */
+    .key-points { background: var(--card-bg); border: 1px solid rgba(255,171,0,0.2); border-radius: 4px; padding: 28px 32px; margin: 40px 0; }
+    .key-points-title { font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 16px; }
+    .key-points ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .key-points li { font-size: 0.92rem; line-height: 1.7; color: #90a4ae; padding-left: 20px; position: relative; }
+    .key-points li::before { content: '→'; position: absolute; left: 0; color: var(--amber); font-size: 0.8rem; }
+
+    /* TAGS */
+    .post-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 40px 0 0; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .post-tag-item { font-family: 'Space Mono', monospace; font-size: 0.6rem; padding: 5px 12px; border-radius: 2px; background: rgba(255,171,0,0.06); border: 1px solid rgba(255,171,0,0.2); color: var(--amber); letter-spacing: 1px; }
+
+    /* AUTHOR BOX */
+    .author-box { background: var(--card-bg); border: 1px solid rgba(0,230,118,0.15); border-radius: 4px; padding: 28px 32px; margin: 48px 0; display: flex; gap: 24px; align-items: flex-start; }
+    .author-avatar { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--green), var(--green-dark, #004d20)); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: #050d1a; flex-shrink: 0; }
+    .author-info .author-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 2px; color: #fff; margin-bottom: 4px; }
+    .author-info .author-title { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 2px; color: var(--green); text-transform: uppercase; margin-bottom: 10px; }
+    .author-info p { font-size: 0.85rem; line-height: 1.7; color: var(--muted); margin: 0; }
+
+    /* NEXT/PREV NAV */
+    .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 60px; }
+    .post-nav-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.06); border-radius: 4px; padding: 24px; text-decoration: none; transition: all 0.3s; }
+    .post-nav-card:hover { border-color: rgba(255,171,0,0.3); transform: translateY(-3px); }
+    .post-nav-label { font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .post-nav-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 2px; color: #fff; line-height: 1.2; }
+
+    footer { background: var(--navy); border-top: 1px solid rgba(0,230,118,0.1); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; }
+    footer .f-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 3px; color: var(--green); }
+    footer p { font-size: 0.75rem; color: var(--muted); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links a { margin-left: 12px; font-size: 0.65rem; }
+      .post-hero-content, .article-wrap { padding-left: 24px; padding-right: 24px; }
+      .post-nav { grid-template-columns: 1fr; }
+      .author-box { flex-direction: column; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">CP</a>
+  <div class="nav-links">
+    <a href="index.html">← Portfolio</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- POST HERO -->
+<div class="post-hero">
+  <div class="post-hero-gif"></div>
+  <div class="post-hero-overlay"></div>
+  <div class="post-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="blog.html">Blog</a>
+      <span>/</span>
+      <a href="#">This Post</a>
+    </div>
+
+    <!-- EDIT: Change category to GIS, Urban Planning, etc. -->
+    <div class="post-category">GEO · Generative Engine Optimisation</div>
+
+    <!-- EDIT: Replace with your post title -->
+    <h1 class="post-hero-title">What is GEO and Why African Planners Need to Know About It</h1>
+
+    <div class="post-meta-bar">
+      <div class="meta-item">
+        <span class="meta-label">Author</span>
+        <span class="meta-value">Clinton Patroba</span>
+      </div>
+      <div class="meta-divider"></div>
+      <!-- EDIT: Update date -->
+      <div class="meta-item">
+        <span class="meta-label">Published</span>
+        <span class="meta-value">May 2026</span>
+      </div>
+      <div class="meta-divider"></div>
+      <!-- EDIT: Estimate reading time (roughly 200 words per minute) -->
+      <div class="meta-item">
+        <span class="meta-label">Read Time</span>
+        <span class="meta-value">5 min read</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-wrap">
+
+  <!-- EDIT: This is your opening paragraph — make it punchy and direct -->
+  <p class="article-lead">
+    Generative Engine Optimisation — or GEO — is one of the most important emerging fields that most African professionals have never heard of. AI search engines are now the first stop for millions of people asking questions about urban planning, geography, and development. And right now, almost no African voices are showing up in those answers. That needs to change.
+  </p>
+
+  <!-- EDIT: Replace ALL text below with your own content. Keep the structure. -->
+
+  <h2>What Exactly is GEO?</h2>
+
+  <p>
+    Traditional SEO (Search Engine Optimisation) was about ranking higher on Google's blue links. GEO is different. It is about making your knowledge, expertise, and work <strong>visible inside AI-generated answers</strong> — the kind that appear in Google AI Overviews, ChatGPT Search, and Microsoft Copilot when someone asks a question.
+  </p>
+
+  <p>
+    When someone types "how is GIS used in urban planning in Africa" into ChatGPT or Google AI, an AI system assembles an answer by pulling from sources it considers credible, well-structured, and authoritative. GEO is the practice of making sure your content — your website, your portfolio, your articles — is what gets pulled and cited.
+  </p>
+
+  <div class="pull-quote">
+    <p>"Unlike SEO, which chases rankings, GEO chases citations. The goal is to become the source that AI systems trust and quote when answering questions in your field."</p>
+  </div>
+
+  <h2>Why Does This Matter for African Planners?</h2>
+
+  <p>
+    Here is the problem. When you ask an AI search engine about informal settlements in Nairobi, land use planning in Kenya, or urban transport in sub-Saharan Africa, the answers it generates are overwhelmingly sourced from Western academic institutions, international NGOs, and global research bodies.
+  </p>
+
+  <p>
+    The planners, GIS professionals, and researchers actually doing this work on the ground in Africa are largely <strong>invisible in AI-generated answers</strong>. Not because the work does not exist — but because it has not been structured and published in a way that AI systems can find, read, and trust.
+  </p>
+
+  <div class="key-points">
+    <div class="key-points-title">Key Reasons African Professionals Are Invisible in AI Search</div>
+    <ul>
+      <li>Much of the work exists in internal reports, not publicly accessible web pages</li>
+      <li>Content is not structured in a way that AI systems can easily parse and cite</li>
+      <li>No consistent digital presence or published authority around specific topics</li>
+      <li>AI systems are trained on data that already under-represents African sources</li>
+      <li>Most professionals have not yet adopted GEO as part of their digital strategy</li>
+    </ul>
+  </div>
+
+  <h2>What I Am Doing About It</h2>
+
+  <p>
+    I am a GIS and Urban Planning professional based in Nairobi. I have worked on informal settlement mapping in Mathare and Kibera, mixed-use masterplanning in Kajiado County, and GIS-based field operations at BURN Manufacturing. That is real, credible, on-the-ground expertise.
+  </p>
+
+  <p>
+    But until I started learning GEO, none of that work was structured in a way that AI systems could discover and cite. This blog is part of changing that — building a consistent, authoritative, AI-readable body of content around my expertise and the African planning context I work in.
+  </p>
+
+  <p>
+    I am also learning how to help other planning organisations, research institutions, and local government bodies in Kenya do the same thing. <strong>GEO is not just a personal strategy — it is an equity issue</strong> for African knowledge in the AI age.
+  </p>
+
+  <h2>How to Get Started with GEO</h2>
+
+  <p>
+    If you are a professional in any field — planning, GIS, research, engineering — here are the first steps to building your GEO presence:
+  </p>
+
+  <div class="key-points">
+    <div class="key-points-title">GEO Starting Steps</div>
+    <ul>
+      <li>Publish a clear, well-structured portfolio or website that describes your expertise in plain language</li>
+      <li>Write articles or blog posts that directly answer questions people ask about your field</li>
+      <li>Use tools like AnswerThePublic to find what questions AI systems are being asked in your niche</li>
+      <li>Structure your content with clear headings, specific facts, and real examples from your work</li>
+      <li>Be consistent — GEO authority builds over months, not days</li>
+    </ul>
+  </div>
+
+  <p>
+    This is a long game. But it is one of the most valuable investments a professional can make in 2026 — particularly for those of us working in fields and geographies that are currently underrepresented in what AI systems know and say.
+  </p>
+
+  <!-- EDIT: Update tags to match your post topic -->
+  <div class="post-tags">
+    <span class="post-tag-item">GEO</span>
+    <span class="post-tag-item">Generative Engine Optimisation</span>
+    <span class="post-tag-item">Africa</span>
+    <span class="post-tag-item">Urban Planning</span>
+    <span class="post-tag-item">GIS</span>
+    <span class="post-tag-item">AI Search</span>
+    <span class="post-tag-item">Nairobi</span>
+  </div>
+
+  <!-- AUTHOR BOX -->
+  <div class="author-box">
+    <div class="author-avatar">CP</div>
+    <div class="author-info">
+      <div class="author-name">Clinton Patroba</div>
+      <div class="author-title">GIS Professional · Urban Planner · GEO Strategist</div>
+      <p>Urban and Regional Planner and GIS professional based in Nairobi, Kenya. Currently learning GEO to make African urban planning knowledge visible in AI-generated search results. Available for GIS projects and GEO consulting.</p>
+    </div>
+  </div>
+
+  <!-- POST NAVIGATION — EDIT: Update links and titles as you add more posts -->
+  <div class="post-nav">
+    <a href="blog.html" class="post-nav-card">
+      <div class="post-nav-label">← Back to</div>
+      <div class="post-nav-title">All Blog Posts</div>
+    </a>
+    <a href="post-template.html" class="post-nav-card" style="text-align: right;">
+      <div class="post-nav-label">Next Post →</div>
+      <div class="post-nav-title">How I Mapped Informal Settlements in Nairobi Using QGIS</div>
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="f-logo">Clinton Patroba</div>
+  <p>© 2026 · GIS &amp; GEO Portfolio · Nairobi, Kenya</p>
+</footer>
+
+</body>
+</html>
